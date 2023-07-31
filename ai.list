@@ -1,0 +1,11 @@
+# OpenAi
+# https://github.com/limbopro/Profiles4limbo/blob/main/AI_Platforms.list
+
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,sentry.io
+DOMAIN-SUFFIX,ai.com
+DOMAIN-SUFFIX,cloudflare.com
+
+# Claude
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,anthropic.com
