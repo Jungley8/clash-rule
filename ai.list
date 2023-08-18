@@ -21,3 +21,7 @@ DOMAIN-SUFFIX,openai.com
 DOMAIN-SUFFIX,openaiapi-site.azureedge.net
 DOMAIN-SUFFIX,sentry.io
 DOMAIN-SUFFIX,stripe.com
+
+# Makersuite
+DOMAIN-SUFFIX,makersuite.google.com
+DOMAIN-SUFFIX,clients6.google.com
