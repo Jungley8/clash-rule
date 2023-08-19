@@ -9,3 +9,5 @@ DOMAIN-SUFFIX,jungley.net
 DOMAIN-SUFFIX,appio.fun
 
 DOMAIN-SUFFIX,tailscale.com
+
+IP-CIDR,23.95.68.170/32
