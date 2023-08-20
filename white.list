@@ -3,3 +3,5 @@
 DOMAIN-SUFFIX,docker.io
 DOMAIN-SUFFIX,cloudfront.net
 DOMAIN-SUFFIX,static.dash.cloudflare.com
+
+DOMAIN-SUFFIX,orbstack.devs
