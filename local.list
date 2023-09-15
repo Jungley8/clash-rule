@@ -11,3 +11,6 @@ DOMAIN-SUFFIX,appio.fun
 DOMAIN-SUFFIX,tailscale.com
 
 IP-CIDR,23.95.68.170/32
+
+# cloudflare wrap+
+IP-CIDR,162.159.193.0/24
