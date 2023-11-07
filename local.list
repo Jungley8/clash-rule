@@ -14,3 +14,7 @@ IP-CIDR,23.95.68.170/32
 
 # cloudflare wrap+
 IP-CIDR,162.159.193.0/24
+IP-CIDR,2606:4700:100::/48
+
+DOMAIN-SUFFIX,argotunnel.com
+DOMAIN-SUFFIX,cloudflare.com

@@ -5,3 +5,5 @@ DOMAIN-SUFFIX,cloudfront.net
 DOMAIN-SUFFIX,static.dash.cloudflare.com
 
 DOMAIN-SUFFIX,orbstack.devs
+# 三分机场
+DIRECT-SUFFIX,xn--ehq00hgtfdmt.xyz
