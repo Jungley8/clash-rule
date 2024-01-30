@@ -18,3 +18,6 @@ IP-CIDR,2606:4700:100::/48
 
 DOMAIN-SUFFIX,argotunnel.com
 DOMAIN-SUFFIX,cloudflare.com
+
+# codeium
+DOMAIN-SUFFIX,codeium.com
