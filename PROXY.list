@@ -2,11 +2,13 @@
 
 DOMAIN-SUFFIX,docker.io
 DOMAIN-SUFFIX,cloudfront.net
-DOMAIN-SUFFIX,static.dash.cloudflare.com
+
+# cloudflare dash
+DIRECT-SUFFIX,dash.cloudflare.com
 
 DOMAIN-SUFFIX,netlify.app
 
 DOMAIN-SUFFIX,orbstack.devs
 
-# 三分机场
+# 机场
 DIRECT-SUFFIX,xn--ehq00hgtfdmt.xyz
