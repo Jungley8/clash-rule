@@ -10,7 +10,7 @@ const params = {
     url: proxy.join('|'),
     insert: false,
     config: 'https://hub.gitmirror.com/https://github.com/Jungley8/clash-rule/raw/main/config.init',
-    emoji: true,
+    emoji: false,
     list: false,
     tfo: false,
     scv: true,
@@ -23,5 +23,5 @@ const params = {
     .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
     .join('&');
 
-  const url = `http://localhost:25500/sub?${queryString}`;
+  const url = `https://sub.xeton.dev/sub?${queryString}`;
   console.log(url);
