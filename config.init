@@ -90,7 +90,7 @@ custom_proxy_group=🎥 奈飞节点`select`(NF|奈飞|解锁|Netflix|NETFLIX|Me
 
 enable_rule_generator=true
 overwrite_original_rules=true
-exclude_remarks=(到期|时间|官网|产品|重置|海外|返利|公益|流量|过期|无效|注册|回国|免费|体验|广告位|○)
+exclude_remarks=(到期|时间|官网|产品|重置|海外|返利|公益|流量|过期|无效|注册|回国|免费|体验|电信|移动|联通|广告位|○)
 
 ;clash_rule_base=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GeneralClashConfig.yml
 
