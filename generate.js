@@ -9,7 +9,7 @@ const params = {
     target: 'clash',
     url: proxy.join('|'),
     insert: false,
-    config: 'https://hub.gitmirror.com/https://github.com/Jungley8/clash-rule/raw/main/config.init',
+    config: 'https://github.com/Jungley8/clash-rule/raw/main/config.init',
     emoji: false,
     list: false,
     tfo: false,
