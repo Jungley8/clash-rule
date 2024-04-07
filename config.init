@@ -12,6 +12,7 @@
 ;设置规则标志位
 ruleset=🎯 全球直连,https://github.com/Jungley8/clash-rule/raw/main/DIRECT.list
 ruleset=🚀 节点选择,https://github.com/Jungley8/clash-rule/raw/main/PROXY.list
+ruleset=🌏 英国专区,https://github.com/Jungley8/clash-rule/raw/main/UK.list
 ruleset=🅰️ AI,https://github.com/Jungley8/clash-rule/raw/main/ai.list
 ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
 ;ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
