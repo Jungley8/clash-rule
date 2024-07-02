@@ -14,6 +14,7 @@ DOMAIN-SUFFIX,orbstack.devs
 DOMAIN-SUFFIX,xn--ehq00hgtfdmt.xyz
 DOMAIN-SUFFIX,xn--mes91r2ng7p4a.com
 DOMAIN-SUFFIX,xn--ehqx7tcnnope.com
+DOMAIN-SUFFIX,xn--4gq62f52gdss.ink
 DOMAIN-SUFFIX,fbla04.flyingbird.lat
 # DOMAIN-SUFFIX,bocchi.ooo
 
@@ -23,3 +24,7 @@ DOMAIN-SUFFIX,shuzijumin.com
 # X
 DOMAIN,x.com
 DOMAIN,api.x.com
+
+# web3
+DOMAIN,io.net
+DOMAIN,worker.io.net
