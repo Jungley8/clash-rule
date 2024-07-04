@@ -28,3 +28,4 @@ DOMAIN,api.x.com
 # web3
 DOMAIN,io.net
 DOMAIN,worker.io.net
+DOMAIN-SUFFIX,io.solutions
