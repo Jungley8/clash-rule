@@ -1,10 +1,6 @@
 # OpenAi
 #https://github.com/limbopro/Profiles4limbo/blob/main/AI_Platforms.list
 
-# Claude
-DOMAIN-SUFFIX,claude.ai
-DOMAIN-SUFFIX,anthropic.com
-
 # 内容：OpenAi
 # 数量：15条
 DOMAIN-KEYWORD,openai
