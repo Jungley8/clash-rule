@@ -2,6 +2,7 @@
 
 DOMAIN-SUFFIX,docker.io
 DOMAIN-SUFFIX,cloudfront.net
+DOMAIN-SUFFIX,ghcr.io
 
 # cloudflare dash
 DIRECT-SUFFIX,dash.cloudflare.com
@@ -15,6 +16,7 @@ DOMAIN-SUFFIX,xn--ehq00hgtfdmt.xyz
 DOMAIN-SUFFIX,xn--mes91r2ng7p4a.com
 DOMAIN-SUFFIX,xn--ehqx7tcnnope.com
 DOMAIN-SUFFIX,xn--4gq62f52gdss.ink
+DOMAIN,xn--4gq62f.link
 DOMAIN-SUFFIX,fbla04.flyingbird.lat
 # DOMAIN-SUFFIX,bocchi.ooo
 
