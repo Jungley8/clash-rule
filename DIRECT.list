@@ -5,7 +5,7 @@ DOMAIN-SUFFIX,zhibaocloud.com
 
 DOMAIN-SUFFIX,appio.win
 DOMAIN-SUFFIX,iyejing.cn
-DOMAIN-SUFFIX,jungley.net
+# DOMAIN-SUFFIX,jungley.net
 DOMAIN-SUFFIX,appio.fun
 
 DOMAIN-SUFFIX,tailscale.com
