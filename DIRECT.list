@@ -10,7 +10,7 @@ DOMAIN-SUFFIX,appio.fun
 
 DOMAIN-SUFFIX,tailscale.com
 
-DOMAIN-KEYWORD,test
+DOMAIN-SUFFIX,test
 
 IP-CIDR,23.95.68.170/32
 
