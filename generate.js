@@ -9,7 +9,8 @@ const params = {
     target: 'clash',
     url: proxy.join('|'),
     insert: false,
-    config: 'https://github.com/Jungley8/clash-rule/raw/main/config.init',
+    // config: 'https://github.com/Jungley8/clash-rule/raw/main/config.init',
+    config: 'https://raw.githubusercontent.com/Aethersailor/Custom_OpenClash_Rules/main/cfg/Custom_Clash.ini',
     emoji: false,
     list: false,
     tfo: false,
@@ -23,5 +24,8 @@ const params = {
     .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
     .join('&');
 
-  const url = `https://sub.xeton.dev/sub?${queryString}`;
+  // const url = `https://sub.xeton.dev/sub?${queryString}`;
+  // const url = `https://api.dler.io/sub?${queryString}`;
+  const url = `https://api.asailor.org/sub?${queryString}`;
+
   console.log(url);
