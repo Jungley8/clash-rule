@@ -30,3 +30,9 @@ DOMAIN-SUFFIX,palcloud.top
 DOMAIN-SUFFIX,the-best-airport.com
 DOMAIN-SUFFIX,byteprivatelink.com
 # DOMAIN-SUFFIX,
+
+# PT
+DOMAIN,myanonamouse.net
+
+# process
+PROCESS-NAME,tailscaled
