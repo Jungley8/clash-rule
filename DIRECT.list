@@ -32,7 +32,7 @@ DOMAIN-SUFFIX,byteprivatelink.com
 # DOMAIN-SUFFIX,
 
 # PT
-DOMAIN,myanonamouse.net
+DOMAIN-SUFFIX,myanonamouse.net
 
 # process
 PROCESS-NAME,tailscaled
