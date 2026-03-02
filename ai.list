@@ -47,3 +47,6 @@ DOMAIN-SUFFIX,googleapis.com
 
 # devv.ai
 DOMAIN-SUFFIX,devv.ai
+
+# manus
+DOMAIN,manus.im
