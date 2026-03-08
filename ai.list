@@ -45,6 +45,11 @@ DOMAIN-SUFFIX,in.appcenter.ms
 DOMAIN-SUFFIX,ogs.google.com
 DOMAIN-SUFFIX,googleapis.com
 
+# Antigravity 核心 API 服务
+DOMAIN-SUFFIX,antigravity.google
+DOMAIN-SUFFIX,cloudcode.google
+DOMAIN-KEYWORD,antigravity
+
 # devv.ai
 DOMAIN-SUFFIX,devv.ai
 
