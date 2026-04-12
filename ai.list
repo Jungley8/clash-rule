@@ -1,8 +1,11 @@
-# OpenAi
 #https://github.com/limbopro/Profiles4limbo/blob/main/AI_Platforms.list
 
-# 内容：OpenAi
-# 数量：15条
+# Claude
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,claudeusercontent.com
+
+# OpenAi
 DOMAIN-KEYWORD,openai
 DOMAIN-SUFFIX,auth0.com
 DOMAIN-SUFFIX,challenges.cloudflare.com
@@ -19,8 +22,24 @@ DOMAIN-SUFFIX,chatgpt.com
 DOMAIN-SUFFIX,openaiapi-site.azureedge.net
 DOMAIN-SUFFIX,sentry.io
 DOMAIN-SUFFIX,stripe.com
+DOMAIN,browser-intake-datadoghq.com
+DOMAIN,chat.openai.com.cdn.cloudflare.net
+DOMAIN,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net
+DOMAIN,openaicomproductionae4b.blob.core.windows.net
+DOMAIN,production-openaicom-storage.azureedge.net
+DOMAIN,static.cloudflareinsights.com
+DOMAIN-SUFFIX,ai.com
+DOMAIN-SUFFIX,algolia.net
+DOMAIN-SUFFIX,api.statsig.com
+DOMAIN-SUFFIX,chatgpt.livekit.cloud
+DOMAIN-SUFFIX,host.livekit.cloud
+DOMAIN-SUFFIX,launchdarkly.com
+DOMAIN-SUFFIX,observeit.net
+DOMAIN-SUFFIX,openaicom.imgix.net
+DOMAIN-SUFFIX,segment.io
+DOMAIN-SUFFIX,turn.livekit.cloud
 
-# Google
+# Google AI
 DOMAIN-SUFFIX,accounts.google.com
 DOMAIN-SUFFIX,apis.google.com
 DOMAIN-SUFFIX,clients6.google.com
@@ -46,10 +65,19 @@ DOMAIN-SUFFIX,ogs.google.com
 DOMAIN-SUFFIX,googleapis.com
 DOMAIN-KEYWORD,notebooklm
 
-# Antigravity 核心 API 服务
+# Antigravity
 DOMAIN-SUFFIX,antigravity.google
 DOMAIN-SUFFIX,cloudcode.google
 DOMAIN-KEYWORD,antigravity
+DOMAIN,ai.google.dev
+
+# deepmind
+DOMAIN-SUFFIX,deepmind.com
+DOMAIN-SUFFIX,deepmind.google
+DOMAIN-SUFFIX,generativeai.google
+DOMAIN-KEYWORD,colab
+DOMAIN-KEYWORD,developerprofiles
+DOMAIN-KEYWORD,generativelanguage
 
 # devv.ai
 DOMAIN-SUFFIX,devv.ai
