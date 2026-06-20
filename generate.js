@@ -25,8 +25,9 @@ const params = {
     .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
     .join('&');
 
-  // const url = `https://sub.xeton.dev/sub?${queryString}`;
-  // const url = `https://api.dler.io/sub?${queryString}`;
-  const url = `https://api.asailor.org/sub?${queryString}`;
+// const url = `https://sub.xeton.dev/sub?${queryString}`;
+// const url = `https://api.dler.io/sub?${queryString}`;
+// const url = `https://sub.bocchi.lol/sub?${queryString}`;
+const url = `https://url.v1.mk/sub?${queryString}`;
 
   console.log(url);

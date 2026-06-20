@@ -14,6 +14,9 @@ DOMAIN-SUFFIX,test
 
 IP-CIDR,23.95.68.170/32
 
+# tailscale
+IP-CIDR,100.64.0.0/10
+
 # cloudflare wrap+
 IP-CIDR,162.159.193.0/24
 IP-CIDR,2606:4700:100::/48
