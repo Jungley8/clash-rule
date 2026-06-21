@@ -5,7 +5,7 @@ DOMAIN-SUFFIX,cloudfront.net
 DOMAIN-SUFFIX,ghcr.io
 
 # cloudflare dash
-DIRECT-SUFFIX,dash.cloudflare.com
+DOMAIN-SUFFIX,dash.cloudflare.com
 
 DOMAIN-SUFFIX,netlify.app
 
