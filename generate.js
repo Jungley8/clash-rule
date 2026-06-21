@@ -27,7 +27,7 @@ const params = {
 
 // const url = `https://sub.xeton.dev/sub?${queryString}`;
 // const url = `https://api.dler.io/sub?${queryString}`;
-// const url = `https://sub.bocchi.lol/sub?${queryString}`;
-const url = `https://url.v1.mk/sub?${queryString}`;
+// const url = `https://url.v1.mk/sub?${queryString}`;
+const url = `http://100.106.251.111:15051/sub?${queryString}`;
 
   console.log(url);
