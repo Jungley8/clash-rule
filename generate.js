@@ -29,6 +29,6 @@ const params = {
 // const url = `https://api.dler.io/sub?${queryString}`;
 // const url = `https://url.v1.mk/sub?${queryString}`;
 // const url = `http://100.106.251.111:15051/sub?${queryString}`;
-const url = `https://hub.i8j.cc:15051/sub?${queryString}`;
+const url = `https://sub.i8j.cc/sub?${queryString}`;
 
   console.log(url);
