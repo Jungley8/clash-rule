@@ -1,14 +1,11 @@
-# 漏网之鱼
-
+# Runaway
 DOMAIN-SUFFIX,docker.io
 DOMAIN-SUFFIX,cloudfront.net
 DOMAIN-SUFFIX,ghcr.io
-
 DOMAIN-SUFFIX,netlify.app
-
 DOMAIN-SUFFIX,orbstack.devs
 
-# 机场
+# Airport
 DOMAIN-SUFFIX,xn--ehq00hgtfdmt.xyz
 DOMAIN-SUFFIX,xn--mes91r2ng7p4a.com
 DOMAIN-SUFFIX,xn--ehqx7tcnnope.com
@@ -19,14 +16,12 @@ DOMAIN-SUFFIX,yyssr.org
 DOMAIN-SUFFIX,config-sync.com
 # DOMAIN-SUFFIX,bocchi.ooo
 
-# 数字
+# Number
 DOMAIN-SUFFIX,shuzijumin.com
 
 # X
-DOMAIN,x.com
-DOMAIN,api.x.com
+DOMAIN-SUFFIX,x.com
 
 # web3
-DOMAIN,io.net
-DOMAIN,worker.io.net
+DOMAIN-SUFFIX,io.net
 DOMAIN-SUFFIX,io.solutions
