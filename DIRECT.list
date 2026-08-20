@@ -39,3 +39,5 @@ DOMAIN-SUFFIX,myanonamouse.net
 
 # process
 PROCESS-NAME,tailscaled
+PROCESS-NAME,tailscale
+PROCESS-NAME,tailscaled.exe
