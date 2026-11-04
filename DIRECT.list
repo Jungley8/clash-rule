@@ -38,3 +38,8 @@ DOMAIN-SUFFIX,myanonamouse.net
 PROCESS-NAME,tailscaled
 PROCESS-NAME,tailscale
 PROCESS-NAME,tailscaled.exe
+
+#OpenCode
+DOMAIN,opencode.ai
+DOMAIN-SUFFIX,opencode.ai
+
