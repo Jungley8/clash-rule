@@ -1,0 +1,62 @@
+# 小米 / MIUI 手机数据上报与广告域名
+# 在 config.init 中通过下面一行引用，命中后走 🚫 小米上报 分组（默认 REJECT）：
+#   ruleset=🚫 小米上报,https://github.com/Jungley8/clash-rule/raw/main/xiaomi.list
+#
+# 收录范围：统计埋点、广告下发、应用商店推荐/推广、网络定位上报。
+# 刻意不收录（会影响正常功能）：
+#   cn.app.chat.xiaomi.net / resolver.msg.xiaomi.net  小米推送
+#   update.miui.com / *.update.*                      系统 OTA
+#   update.avlyun.sec.miui.com                        病毒库更新
+#   account.xiaomi.com / idm.api.io.mi.com            账号与查找设备
+#   connect.rom.miui.com                              联网探针
+# 某个域名影响功能时，把「🚫 小米上报」分组切到 DIRECT 即可临时放行。
+
+# ---- 统计 / 埋点（Mistat、OneTrack、TrackService）----
+DOMAIN-SUFFIX,mistat.xiaomi.com
+DOMAIN,tracking.miui.com
+DOMAIN,tracking.intl.miui.com
+DOMAIN,tracking.india.miui.com
+DOMAIN,tracking.rus.miui.com
+DOMAIN,tracking.eu.miui.com
+DOMAIN,tracking.cn.miui.com
+DOMAIN,a0.app.xiaomi.com
+DOMAIN,ccc.sys.miui.com
+DOMAIN,jupiter.sys.miui.com
+DOMAIN,growth.ai.srv
+DOMAIN,qsb.browser.miui.srv
+DOMAIN,rom.pt.miui.srv
+DOMAIN,metok.sys.miui.com
+
+# ---- 安全中心云端上报（病毒库更新不放行）----
+DOMAIN,flash.sec.miui.com
+DOMAIN,adv.sec.miui.com
+DOMAIN,logupdate.avlyun.sec.miui.com
+DOMAIN,log.avlyun.sec.intl.miui.com
+DOMAIN,ixav-cse.avlyun.com
+DOMAIN,miav-cse.avlyun.com
+DOMAIN,miui-fxcse.avlyun.com
+DOMAIN,sdkconf.avlyun.com
+DOMAIN,api.installer.xiaomi.com
+
+# ---- 系统广告（MSA / 开屏 / 推荐位）----
+DOMAIN-SUFFIX,ad.xiaomi.com
+DOMAIN,ad1.xiaomi.com
+DOMAIN,ad.mi.com
+DOMAIN-SUFFIX,ad.intl.xiaomi.com
+DOMAIN,o2o.api.xiaomi.com
+DOMAIN,mazu.sec.miui.com
+
+# ---- 应用商店推荐与推广物料 ----
+DOMAIN,app.market.xiaomi.com
+DOMAIN,sf0.market.xiaomi.com
+DOMAIN,vd1.market.xiaomi.com
+DOMAIN,f1.market.xiaomi.com
+DOMAIN,f2.market.xiaomi.com
+DOMAIN,f3.market.xiaomi.com
+DOMAIN,f4.market.xiaomi.com
+DOMAIN,f5.market.xiaomi.com
+DOMAIN,f1.market.mi-img.com
+DOMAIN,f2.market.mi-img.com
+DOMAIN,f3.market.mi-img.com
+DOMAIN,f4.market.mi-img.com
+DOMAIN,f5.market.mi-img.com

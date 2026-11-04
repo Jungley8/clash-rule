@@ -1,0 +1,9 @@
+# opencode（AI 编码 CLI）
+# 在 config.init 中引用：
+#   ruleset=🅰️ opencode,https://github.com/Jungley8/clash-rule/raw/main/opencode.list
+# 部分网络环境下 opencode.ai 无法直连，因此默认走 🅰️ opencode 分组（默认代理）。
+# 需要直连时在客户端把该分组切到 DIRECT。
+DOMAIN-SUFFIX,opencode.ai
+
+# 旧版 opencode 使用的模型目录（当前版本已改为 models.opencode.ai）。
+DOMAIN-SUFFIX,models.dev

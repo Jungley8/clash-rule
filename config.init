@@ -1,28 +1,44 @@
 [custom]
-;不要随意改变关键字，否则会导致出错
-;acl4SSR规则
+; subconverter-ng 外部配置：规则集（ruleset）+ 分组（custom_proxy_group）
+; 规则自上而下匹配，命中即停：具体规则在前，通用兜底在后。
+; 分组名同时是规则目标；改名必须同步下面的 custom_proxy_group。
+; 语法：ruleset=分组名,规则列表URL
+;       ruleset=分组名,[]内联规则（GEOIP,CN / FINAL）
+;       custom_proxy_group=名称`类型`选择器...`测速地址`间隔,,容差
+;       []xxx 引用已有分组或内置策略（DIRECT / REJECT）；其余是匹配节点名的正则
 
-;去广告：支持
-;自动测速：支持
-;微软分流：支持
-;苹果分流：支持
-;增强中国IP段：支持
-;增强国外GFW：支持
-
-;设置规则标志位
+; ==================== 1. 本仓自定义规则 ====================
+; 放在最前，避免自己的域名被后面的宽泛规则抢走。
 ruleset=🎯 全球直连,https://github.com/Jungley8/clash-rule/raw/main/DIRECT.list
 ruleset=🚀 节点选择,https://github.com/Jungley8/clash-rule/raw/main/PROXY.list
-ruleset=🌏 英国专区,https://github.com/Jungley8/clash-rule/raw/main/UK.list
-ruleset=🅰️ AI,https://github.com/Jungley8/clash-rule/raw/main/ai.list
-ruleset=🅰️ Claude,https://github.com/Jungley8/clash-rule/raw/main/claude.list
-ruleset=🅰️ Google,https://github.com/Jungley8/clash-rule/raw/main/google.list
-ruleset=🅰️ OpenAI,https://github.com/Jungley8/clash-rule/raw/main/openai.list
-ruleset=🅣 Tailscale,https://github.com/Jungley8/clash-rule/raw/main/tailscale.list
-ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
-;ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
+
+; ==================== 2. 广告 / 隐私拦截 ====================
+; 小米手机统计、广告、商店推荐与定位上报域名。
+ruleset=🚫 小米上报,https://github.com/Jungley8/clash-rule/raw/main/xiaomi.list
+; 需要通用去广告时再取消注释（默认关闭，减少误杀）。
 ;ruleset=🛑 广告拦截,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
 ;ruleset=🛑 广告拦截,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list
 ;ruleset=🍃 应用净化,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
+;ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
+
+; ==================== 3. 局域网 / Tailscale ====================
+; IP 规则必须早于通用代理规则。
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+ruleset=🅣 Tailscale,https://github.com/Jungley8/clash-rule/raw/main/tailscale.list
+
+; ==================== 4. AI 服务 ====================
+; 顺序很重要：具体服务在前，ai.list 的 DOMAIN-SUFFIX,ai 是宽泛兜底，必须最后。
+ruleset=🅰️ Claude,https://github.com/Jungley8/clash-rule/raw/main/claude.list
+ruleset=🅰️ OpenAI,https://github.com/Jungley8/clash-rule/raw/main/openai.list
+ruleset=🅰️ Google,https://github.com/Jungley8/clash-rule/raw/main/google.list
+ruleset=🅰️ opencode,https://github.com/Jungley8/clash-rule/raw/main/opencode.list
+ruleset=🅰️ AI,https://github.com/Jungley8/clash-rule/raw/main/ai.list
+
+; ==================== 5. 地区专区 ====================
+; UK.list 含 DOMAIN-SUFFIX,uk 与 GEOIP,GB，放在 AI 之后避免抢走上面的域名。
+ruleset=🌏 英国专区,https://github.com/Jungley8/clash-rule/raw/main/UK.list
+
+; ==================== 6. 谷歌 / 微软 / 苹果 / 电报 / 音乐 ====================
 ruleset=📢 谷歌FCM,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list
 ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
 ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list
@@ -32,11 +48,14 @@ ruleset=Ⓜ️ 微软服务,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/ma
 ruleset=🍎 苹果服务,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list
 ruleset=📲 电报消息,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
 ruleset=🎶 网易音乐,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/NetEaseMusic.list
+; 游戏平台按需开启。
 ;ruleset=🎮 游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Epic.list
 ;ruleset=🎮 游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Origin.list
 ;ruleset=🎮 游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Sony.list
 ;ruleset=🎮 游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Steam.list
 ;ruleset=🎮 游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Nintendo.list
+
+; ==================== 7. 流媒体 ====================
 ruleset=📹 油管视频,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YouTube.list
 ruleset=🎥 奈飞视频,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Netflix.list
 ruleset=📺 巴哈姆特,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Bahamut.list
@@ -44,6 +63,8 @@ ruleset=📺 巴哈姆特,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/mast
 ;ruleset=📺 哔哩哔哩,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Bilibili.list
 ruleset=🌏 国内媒体,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaMedia.list
 ruleset=🌍 国外媒体,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list
+
+; ==================== 8. 兜底分流 ====================
 ruleset=🚀 节点选择,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list
 ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaIp.list
 ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
@@ -51,59 +72,76 @@ ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/mast
 ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list
 ruleset=🎯 全球直连,[]GEOIP,CN
 ruleset=🐟 漏网之鱼,[]FINAL
-;设置规则标志位
 
-;设置分组标志位
+; ==================== 分组 ====================
+; ---------- 主选择 ----------
 custom_proxy_group=🚀 节点选择`select`[]♻️ 自动选择`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇸🇬 狮城节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点`[]🚀 手动切换`[]DIRECT
-custom_proxy_group=🚀 手动切换`select`.*
 custom_proxy_group=♻️ 自动选择`url-test`.*`http://www.gstatic.com/generate_204`300,,50
+custom_proxy_group=🚀 手动切换`select`.*
+
+; ---------- 拦截 ----------
+; 默认 REJECT；某个域名影响功能时切到 DIRECT 放行。
+custom_proxy_group=🚫 小米上报`select`[]REJECT`[]DIRECT
+
+; ---------- 地区节点 ----------
 custom_proxy_group=🇭🇰 香港节点`url-test`(港|HK|hk|Hong Kong|HongKong|hongkong)`http://www.gstatic.com/generate_204`300,,50
-custom_proxy_group=🇯🇵 日本节点`url-test`(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)`http://www.gstatic.com/generate_204`300,,50
-custom_proxy_group=🇺🇲 美国节点`url-test`(美|波特兰|USA|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)`http://www.gstatic.com/generate_204`300,,150
-custom_proxy_group=🇨🇳 台湾节点`url-test`(台|新北|彰化|TW|Taiwan)`http://www.gstatic.com/generate_204`300,,50
+custom_proxy_group=🇨🇳 台湾节点`url-test`(台|新北|彰化|台北|台中|高雄|TW|Taiwan)`http://www.gstatic.com/generate_204`300,,50
 custom_proxy_group=🇸🇬 狮城节点`url-test`(新加坡|坡|狮城|SG|Singapore)`http://www.gstatic.com/generate_204`300,,50
+custom_proxy_group=🇯🇵 日本节点`url-test`(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan|Tokyo|Osaka)`http://www.gstatic.com/generate_204`300,,50
+custom_proxy_group=🇺🇲 美国节点`url-test`(美|波特兰|USA|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)`http://www.gstatic.com/generate_204`300,,150
 custom_proxy_group=🇰🇷 韩国节点`url-test`(KR|Korea|KOR|首尔|韩|韓)`http://www.gstatic.com/generate_204`300,,50
-custom_proxy_group=🇩🇪 德国节点`url-test`(德)`http://www.gstatic.com/generate_204`300,,50
-custom_proxy_group=🇳🇱 荷兰节点`url-test`(荷兰)`http://www.gstatic.com/generate_204`300,,50
-custom_proxy_group=🇨🇦 加拿大节点`url-test`(加拿大)`http://www.gstatic.com/generate_204`300,,50
-custom_proxy_group=🇨🇦 马来西亚节点`url-test`(Malaysia|马来西亚)`http://www.gstatic.com/generate_204`300,,50
-custom_proxy_group=🇹🇷 土耳其节点`url-test`(土耳其|Turkey)`http://www.gstatic.com/generate_204`300,,50
-custom_proxy_group=🇬🇧 英国节点`url-test`(英国|UK)`http://www.gstatic.com/generate_204`300,,50
-custom_proxy_group=🇯🇵 尼日利亚节点`url-test`(尼日利亚)`http://www.gstatic.com/generate_204`300,,50
-custom_proxy_group=🇦🇷 阿根廷节点`url-test`(阿根廷|Argentina)`http://www.gstatic.com/generate_204`300,,50
-custom_proxy_group=南极节点`url-test`(南极)`http://www.gstatic.com/generate_204`300,,50
-custom_proxy_group=📲 电报消息`select`[]🚀 节点选择`[]♻️ 自动选择`[]🇸🇬 狮城节点`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点`[]🚀 手动切换`[]DIRECT
+custom_proxy_group=🇩🇪 德国节点`url-test`(德|DE|Germany|法兰克福|Frankfurt)`http://www.gstatic.com/generate_204`300,,50
+custom_proxy_group=🇳🇱 荷兰节点`url-test`(荷兰|NL|Netherlands|阿姆斯特丹|Amsterdam)`http://www.gstatic.com/generate_204`300,,50
+custom_proxy_group=🇨🇦 加拿大节点`url-test`(加拿大|CA|Canada|多伦多|温哥华|Toronto|Vancouver)`http://www.gstatic.com/generate_204`300,,50
+custom_proxy_group=🇲🇾 马来西亚节点`url-test`(马来西亚|Malaysia|MY|吉隆坡|Kuala Lumpur)`http://www.gstatic.com/generate_204`300,,50
+custom_proxy_group=🇹🇷 土耳其节点`url-test`(土耳其|Turkey|TR|伊斯坦布尔|Istanbul)`http://www.gstatic.com/generate_204`300,,50
+custom_proxy_group=🇬🇧 英国节点`url-test`(英国|UK|Britain|London|伦敦)`http://www.gstatic.com/generate_204`300,,50
+custom_proxy_group=🇳🇬 尼日利亚节点`url-test`(尼日利亚|Nigeria|NG|拉各斯|Lagos)`http://www.gstatic.com/generate_204`300,,50
+custom_proxy_group=🇦🇷 阿根廷节点`url-test`(阿根廷|Argentina|AR|Buenos Aires|布宜诺斯艾利斯)`http://www.gstatic.com/generate_204`300,,50
+custom_proxy_group=南极节点`url-test`(南极|Antarctica|Antarctic)`http://www.gstatic.com/generate_204`300,,50
+
+; ---------- AI 服务 ----------
 custom_proxy_group=🅰️ AI`select`[]🚀 节点选择`[]♻️ 自动选择`[]🇸🇬 狮城节点`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点`[]🚀 手动切换`[]DIRECT
 custom_proxy_group=🅰️ Claude`select`[]🚀 节点选择`[]♻️ 自动选择`[]🇸🇬 狮城节点`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点`[]🚀 手动切换`[]DIRECT
 custom_proxy_group=🅰️ Google`select`[]🚀 节点选择`[]♻️ 自动选择`[]🇸🇬 狮城节点`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点`[]🚀 手动切换`[]DIRECT
 custom_proxy_group=🅰️ OpenAI`select`[]🚀 节点选择`[]♻️ 自动选择`[]🇸🇬 狮城节点`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点`[]🚀 手动切换`[]DIRECT
-custom_proxy_group=🅣 Tailscale`select`(Tailscale)`[]🚀 手动切换`[]🚀 节点选择`[]DIRECT
-custom_proxy_group=📹 油管视频`select`[]🚀 节点选择`[]♻️ 自动选择`[]🇸🇬 狮城节点`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点`[]🚀 手动切换`[]DIRECT
-custom_proxy_group=🎥 奈飞视频`select`[]🎥 奈飞节点`[]🚀 节点选择`[]♻️ 自动选择`[]🇸🇬 狮城节点`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点`[]🚀 手动切换`[]DIRECT
-custom_proxy_group=📺 巴哈姆特`select`[]🇨🇳 台湾节点`[]🚀 节点选择`[]🚀 手动切换`[]DIRECT
-;custom_proxy_group=📺 哔哩哔哩`select`[]🎯 全球直连`[]🇨🇳 台湾节点`[]🇭🇰 香港节点
+custom_proxy_group=🅰️ opencode`select`[]🚀 节点选择`[]♻️ 自动选择`[]🇸🇬 狮城节点`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点`[]🚀 手动切换`[]DIRECT
+
+; ---------- 地区专区 ----------
 custom_proxy_group=🌏 英国专区`select`[]🇬🇧 英国节点`[]🎯 全球直连`[]🚀 节点选择`[]🚀 手动切换
-custom_proxy_group=🌍 国外媒体`select`[]🚀 节点选择`[]♻️ 自动选择`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇸🇬 狮城节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点`[]🚀 手动切换`[]DIRECT
-custom_proxy_group=🌏 国内媒体`select`[]DIRECT`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇸🇬 狮城节点`[]🇯🇵 日本节点`[]🚀 手动切换
+custom_proxy_group=🅣 Tailscale`select`(Tailscale)`[]🚀 手动切换`[]🚀 节点选择`[]DIRECT
+
+; ---------- 常用服务 ----------
 custom_proxy_group=📢 谷歌FCM`select`[]DIRECT`[]🚀 节点选择`[]🇺🇲 美国节点`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇸🇬 狮城节点`[]🇯🇵 日本节点`[]🇰🇷 韩国节点`[]🚀 手动切换
 custom_proxy_group=Ⓜ️ 微软Bing`select`[]DIRECT`[]🚀 节点选择`[]🇺🇲 美国节点`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇸🇬 狮城节点`[]🇯🇵 日本节点`[]🇰🇷 韩国节点`[]🚀 手动切换
 custom_proxy_group=Ⓜ️ 微软云盘`select`[]DIRECT`[]🚀 节点选择`[]🇺🇲 美国节点`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇸🇬 狮城节点`[]🇯🇵 日本节点`[]🇰🇷 韩国节点`[]🚀 手动切换
 custom_proxy_group=Ⓜ️ 微软服务`select`[]DIRECT`[]🚀 节点选择`[]🇺🇲 美国节点`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇸🇬 狮城节点`[]🇯🇵 日本节点`[]🇰🇷 韩国节点`[]🚀 手动切换
 custom_proxy_group=🍎 苹果服务`select`[]DIRECT`[]🚀 节点选择`[]🇺🇲 美国节点`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇸🇬 狮城节点`[]🇯🇵 日本节点`[]🇰🇷 韩国节点`[]🚀 手动切换
-;custom_proxy_group=🎮 游戏平台`select`[]DIRECT`[]🚀 节点选择`[]🇺🇲 美国节点`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇸🇬 狮城节点`[]🇯🇵 日本节点`[]🇰🇷 韩国节点`[]🚀 手动切换
+custom_proxy_group=📲 电报消息`select`[]🚀 节点选择`[]♻️ 自动选择`[]🇸🇬 狮城节点`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点`[]🚀 手动切换`[]DIRECT
 custom_proxy_group=🎶 网易音乐`select`[]DIRECT`[]🚀 节点选择`[]♻️ 自动选择`(网易|音乐|解锁|Music|NetEase)
-custom_proxy_group=🎯 全球直连`select`[]DIRECT`[]🚀 节点选择`[]♻️ 自动选择
-;custom_proxy_group=🛑 广告拦截`select`[]REJECT`[]DIRECT
-;custom_proxy_group=🍃 应用净化`select`[]REJECT`[]DIRECT
-custom_proxy_group=🐟 漏网之鱼`select`[]🚀 节点选择`[]♻️ 自动选择`[]DIRECT`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇸🇬 狮城节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点`[]🚀 手动切换
+; 游戏平台按需开启。
+;custom_proxy_group=🎮 游戏平台`select`[]DIRECT`[]🚀 节点选择`[]🇺🇲 美国节点`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇸🇬 狮城节点`[]🇯🇵 日本节点`[]🇰🇷 韩国节点`[]🚀 手动切换
+
+; ---------- 流媒体 ----------
 custom_proxy_group=🎥 奈飞节点`select`(NF|奈飞|解锁|Netflix|NETFLIX|Media)`[]🚀 手动切换`[]🚀 节点选择
+custom_proxy_group=📹 油管视频`select`[]🚀 节点选择`[]♻️ 自动选择`[]🇸🇬 狮城节点`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点`[]🚀 手动切换`[]DIRECT
+custom_proxy_group=🎥 奈飞视频`select`[]🎥 奈飞节点`[]🚀 节点选择`[]♻️ 自动选择`[]🇸🇬 狮城节点`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点`[]🚀 手动切换`[]DIRECT
+custom_proxy_group=📺 巴哈姆特`select`[]🇨🇳 台湾节点`[]🚀 节点选择`[]🚀 手动切换`[]DIRECT
+custom_proxy_group=🌏 国内媒体`select`[]DIRECT`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇸🇬 狮城节点`[]🇯🇵 日本节点`[]🚀 手动切换
+custom_proxy_group=🌍 国外媒体`select`[]🚀 节点选择`[]♻️ 自动选择`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇸🇬 狮城节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点`[]🚀 手动切换`[]DIRECT
 
-;设置分组标志位
+; ---------- 直连 / 兜底 ----------
+custom_proxy_group=🎯 全球直连`select`[]DIRECT`[]🚀 节点选择`[]♻️ 自动选择
+custom_proxy_group=🐟 漏网之鱼`select`[]🚀 节点选择`[]♻️ 自动选择`[]DIRECT`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇸🇬 狮城节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点`[]🚀 手动切换
 
+; ==================== 全局参数 ====================
 enable_rule_generator=true
 overwrite_original_rules=true
+; 过滤机场官网、返利等非节点条目。
 exclude_remarks=(官网|产品|海外|返利|公益|过期|无效|注册|回国|免费|体验|广告位|○|com|link|20x|20倍|5x|3x|3倍|5倍)
 
+; 自定义基础模板（可选）。不设置时 subconverter-ng 使用内置默认：
+; mixed-port 7890、fake-ip、223.5.5.5/119.29.29.29 DNS。
 ;clash_rule_base=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GeneralClashConfig.yml
 
 ;luck

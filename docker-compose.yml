@@ -1,7 +1,7 @@
-version: '3'
-
 services:
-  subconverter:
-    image: tindy2013/subconverter
+  subconverter-ng:
+    image: ghcr.io/jungley8/subconverter-ng:latest
+    container_name: subconverter-ng
+    restart: unless-stopped
     ports:
       - "25500:25500"
